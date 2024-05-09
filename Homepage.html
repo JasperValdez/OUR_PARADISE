@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="Homepage.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="title">
+                <h1>The Cycle Shop</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="products.html">Shop</a></li> 
+                </ul>
+            </nav>
+            <a href="user.html" class="login-btn">Login</a>
+            <a href="#" class="logout-btn" onclick="logout()">Logout</a> 
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Your main content goes here -->
+    </div>
+
+    <a href="#" class="logout-btn" onclick="logout()">Logout</a>
+
+<script>
+function logout() {
+  localStorage.removeItem("userId"); // Remove user's unique identifier
+  localStorage.removeItem("isLoggedIn"); // Remove user's login status
+  localStorage.removeItem("cart"); // Remove cart items
+  alert("Logged out successfully!");
+  window.location.href = "Homepage.html"; // Redirect to the login page after logout
+}
+</script>
+
+</body>
+</html>

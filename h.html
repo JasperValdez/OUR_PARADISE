@@ -1,0 +1,85 @@
+<script>
+    var currentUser = ""; // Variable to store the current user
+    
+    // Function to handle user login
+    function loginUser(username) {
+      currentUser = username;
+      displayProducts();
+      updateCart();
+    }
+    
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var loginUsername = document.getElementById("loginUsername").value;
+      var loginPassword = document.getElementById("loginPassword").value;
+      var storedPassword = localStorage.getItem(loginUsername);
+      if (storedPassword === loginPassword) {
+        alert("Login successful!");
+        loginUser(loginUsername); // Call function to set current user
+        // Optionally, redirect to the homepage or display a welcome message
+      } else {
+        alert("Invalid username or password.");
+      }
+    });
+    
+    // Function to add a product to the cart
+    function addToCart(key) {
+      var productData = JSON.parse(localStorage.getItem(key));
+      var cart = JSON.parse(localStorage.getItem(currentUser + "_cart")) || {};
+      cart[key] = cart[key] ? cart[key] + 1 : 1;
+      localStorage.setItem(currentUser + "_cart", JSON.stringify(cart));
+      updateCart();
+    }
+    
+    // Function to update the cart
+    function updateCart() {
+      var cartItems = document.getElementById("cartItems");
+      cartItems.innerHTML = "<tr><th>Product Name</th><th>Price</th><th>Quantity</th><th></th></tr>";
+      var totalPrice = 0;
+    
+      var cart = JSON.parse(localStorage.getItem(currentUser + "_cart")) || {};
+      for (var key in cart) {
+        if (cart.hasOwnProperty(key)) {
+          var productData = JSON.parse(localStorage.getItem(key));
+          var price = parseFloat(productData.price);
+          var quantity = cart[key];
+          var totalPriceForProduct = price * quantity;
+    
+          cartItems.innerHTML += `
+            <tr>
+              <td>${productData.name}</td>
+              <td>$${price}</td>
+              <td>
+                <button onclick="decreaseQuantity('${key}')">-</button>
+                ${quantity}
+                <button onclick="increaseQuantity('${key}')">+</button>
+              </td>
+              <td><button onclick="removeFromCart('${key}')">Remove</button></td>
+            </tr>
+          `;
+          totalPrice += totalPriceForProduct;
+        }
+      }
+    
+      document.getElementById("totalPrice").textContent = `$${totalPrice.toFixed(2)}`;
+    }
+    
+    // Function to remove a product from the cart
+    function removeFromCart(key) {
+      var cart = JSON.parse(localStorage.getItem(currentUser + "_cart")) || {};
+      delete cart[key];
+      localStorage.setItem(currentUser + "_cart", JSON.stringify(cart));
+      updateCart();
+    }
+    
+    // Function to checkout
+    function checkout() {
+      localStorage.removeItem(currentUser + "_cart");
+      updateCart();
+      document.getElementById("checkoutMessage").style.display = "block";
+      setTimeout(function() {
+        document.getElementById("checkoutMessage").style.display = "none";
+      }, 2000); // Hide message after 2 seconds
+    }
+    </script>
+    

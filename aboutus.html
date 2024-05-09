@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Transparent white border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  .about-us {
+    text-align: left;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  .team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .team-member {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  /* Style for back button */
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<!-- Back button -->
+<div class="back-button" onclick="goBack()">Back</div>
+
+<div class="container">
+  <h2>About Us</h2>
+  <div class="about-us">
+    <p>Welcome to Bicycle Parts Shop, your one-stop destination for high-quality bicycle parts and accessories!</p>
+    <p>At Cycle Shop, we are passionate about providing fellow enthusiasts with top-notch products to enhance their riding experience. Whether you're a casual rider, a commuter, or a competitive cyclist, we have everything you need to keep your bike in peak condition and take your rides to the next level.</p>
+    <p>Our extensive selection includes:</p>
+    <ul>
+      <li>Bike Parts</li>
+      <li>Accessories</li>
+      <li>Riding Gears</li>
+      <li>Built Bikes</li>
+    </ul>
+    <p>With a focus on quality, reliability, and customer satisfaction, we strive to be your trusted partner in all things related to cycling. Our team is comprised of experienced cyclists who are here to provide expert advice and assistance, ensuring that you find the perfect products to suit your needs.</p>
+    <p>Whether you're embarking on a weekend ride, commuting to work, or tackling a challenging trail, CycleShop is here to support your cycling journey every step of the way. Join us in exploring the world on two wheels and experience the thrill of cycling like never before!</p>
+  </div>
+
+  <h2>Meet Our Team</h2>
+  <div class="team-members">
+    <div class="team-member">
+      <p>Joe Axcel L. Pinzon</p>
+      <p>Frontend Developer</p>
+    </div>
+    <div class="team-member">
+      <p>Khryzomelle C. Alabado</p>
+      <p>Designer</p>
+    </div>
+    <div class="team-member">
+      <p>Jasper F. Valdez</p>
+      <p>Backend Developer</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // JavaScript function to go back to the previous page
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+</body>
+</html>
