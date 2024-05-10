@@ -4,82 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Account System</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('images/bike\ \(2\).jpg') no-repeat center center fixed;
-    background-size: cover;
-  }
-  .container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.5); /* White background with transparency */
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    min-height: 360px; /* Increased the minimum height */
-    position: relative; /* Make the container relative for absolute positioning */
-  }
-  h2 {
-    margin-top: 0;
-    text-align: center;
-    color: #333;
-  }
-  input[type="text"],
-  input[type="password"],
-  button {
-    display: block;
-    width: calc(100% - 20px);
-    padding: 15px 10px;
-    margin: 10px auto;
-    border: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-    background: rgba(249, 249, 249, 0.5); /* White background with transparency */
-    border: 1px solid rgba(238, 238, 238, 0.5); /* Transparent border */
-    transition: 0.3s;
-    color: #000;
-  }
-  input[type="text"]:focus,
-  input[type="password"]:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  button {
-    background: rgba(0, 123, 255, 0.8); /* Blue background with transparency */
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-    border: 1px solid rgba(0, 123, 255, 0.8); /* Transparent border */
-  }
-  button:hover {
-    background: rgba(0, 86, 179, 0.8); /* Darker blue background with transparency */
-  }
-  .form-group {
-    margin-bottom: 20px;
-    position: relative;
-  }
-  /* Style for the back button */
-  .back-button {
-    position: absolute;
-    bottom: -45px; /* Adjusted to be below the admin button */
-    left: 50%; /* Center the button horizontally */
-    transform: translateX(-50%); /* Adjust to center horizontally */
-    width: 100px;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background: rgba(0, 123, 255, 0.8); /* Blue background with transparency */
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  .back-button:hover {
-    background: rgba(0, 86, 179, 0.8); /* Darker blue background with transparency */
-  }
-</style>
+<link rel="stylesheet" href="user.css">
+
 </head>
 <body>
 
@@ -101,58 +27,7 @@
     <button class="back-button" onclick="goBack()">Back</button> 
   </div>
 </div>
-
-<script>
-// JavaScript function to go back to the previous page
-function goBack() {
-  window.history.back();
-}
-
-function setUserIdentifier(username) {
-  var userId = "user_" + username; // Creating a unique identifier for the user
-  localStorage.setItem("userId", userId); // Store the user identifier in local storage
-}
-// Function to register a new user
-function registerUser() {
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-  if (username.trim() === "" || password.trim() === "") {
-    alert("Username and password cannot be empty!");
-    return;
-  }
-  localStorage.setItem("user_" + username, password); // Store user credentials
-  alert("Registration successful!");
-}
-
-// Function to login a user
-function loginUser() {
-  var loginUsername = document.getElementById("loginUsername").value;
-  var loginPassword = document.getElementById("loginPassword").value;
-  var storedPassword = localStorage.getItem("user_" + loginUsername); // Retrieve stored password
-  if (storedPassword === loginPassword) {
-    alert("Login successful!");
-    setUserIdentifier(loginUsername); // Set unique identifier for the logged-in user
-    localStorage.setItem("isLoggedIn", "true"); // Set user's login status
-    window.location.href = "homepage.html"; // Redirect to shop page after login
-  } else {
-    alert("Invalid username or password.");
-  }
-}
-
-function adminLogin() {
-  var adminUsername = "Cycle";
-  var adminPassword = "shop";
-  var loginUsername = document.getElementById("loginUsername").value;
-  var loginPassword = document.getElementById("loginPassword").value;
-  if (loginUsername === adminUsername && loginPassword === adminPassword) {
-    alert("Admin login successful!");
-    window.location.href = "manage.html"; // Change the URL to the desired admin page
-  } else {
-    alert("Invalid admin credentials.");
-  }
-}
-</script>
-
+<script src="user.js"></script>
 </body>
 </html>
 

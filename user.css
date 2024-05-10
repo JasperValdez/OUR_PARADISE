@@ -1,0 +1,74 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('images/bike\ \(2\).jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5); /* White background with transparency */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    min-height: 360px; /* Increased the minimum height */
+    position: relative; /* Make the container relative for absolute positioning */
+  }
+  h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+  }
+  input[type="text"],
+  input[type="password"],
+  button {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 15px 10px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: rgba(249, 249, 249, 0.5); /* White background with transparency */
+    border: 1px solid rgba(238, 238, 238, 0.5); /* Transparent border */
+    transition: 0.3s;
+    color: #000;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  button {
+    background: rgba(0, 123, 255, 0.8); /* Blue background with transparency */
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid rgba(0, 123, 255, 0.8); /* Transparent border */
+  }
+  button:hover {
+    background: rgba(0, 86, 179, 0.8); /* Darker blue background with transparency */
+  }
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  /* Style for the back button */
+  .back-button {
+    position: absolute;
+    bottom: -45px; /* Adjusted to be below the admin button */
+    left: 50%; /* Center the button horizontally */
+    transform: translateX(-50%); /* Adjust to center horizontally */
+    width: 100px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0, 123, 255, 0.8); /* Blue background with transparency */
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .back-button:hover {
+    background: rgba(0, 86, 179, 0.8); /* Darker blue background with transparency */
+  }

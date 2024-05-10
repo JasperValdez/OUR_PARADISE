@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="Homepage.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
@@ -16,7 +15,7 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    
                     <li><a href="aboutus.html">About Us</a></li>
                     <li><a href="products.html">Shop</a></li> 
                 </ul>
@@ -36,7 +35,6 @@
 function logout() {
   localStorage.removeItem("userId"); // Remove user's unique identifier
   localStorage.removeItem("isLoggedIn"); // Remove user's login status
-  localStorage.removeItem("cart"); // Remove cart items
   alert("Logged out successfully!");
   window.location.href = "Homepage.html"; // Redirect to the login page after logout
 }
