@@ -13,13 +13,13 @@
   <form id="productForm">
     <input type="text" id="productName" placeholder="Product Name" required>
     <input type="number" id="productPrice" placeholder="Product Price" required>
-    <input type="file" id="productImage" accept="image/*" style="display: none;"> <!-- Hide the file input -->
-    <button type="button" onclick="document.getElementById('productImage').click();">Choose Image</button> <!-- Trigger file input click event -->
+    <input type="file" id="productImage" accept="image/*" style="display: none;"> 
+    <button type="button" onclick="document.getElementById('productImage').click();">Choose Image</button> 
     <button type="submit">Create Product</button>
   </form>
 
   <div class="product-list" id="productList">
-    <!-- Products will be displayed here -->
+    
   </div>
 
   <button class="back-button" onclick="goBack()">Back</button>

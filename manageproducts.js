@@ -4,18 +4,18 @@ document.getElementById("productForm").addEventListener("submit", function(event
     var productPrice = document.getElementById("productPrice").value;
     var productImage = document.getElementById("productImage").files[0];
     
-    // Convert image to base64 string
+    // Convert image 
     var reader = new FileReader();
     reader.onload = function(e) {
       var productData = {
         name: productName,
         price: productPrice,
-        image: e.target.result // Base64 encoded image
+        image: e.target.result 
       };
       // Save product data to localStorage
       localStorage.setItem("product_" + productName, JSON.stringify(productData));
       alert("Product created successfully!");
-      displayProducts(); // Call function to display products
+      displayProducts(); 
     };
     reader.readAsDataURL(productImage);
   });
@@ -23,7 +23,7 @@ document.getElementById("productForm").addEventListener("submit", function(event
   // Function to display products
   function displayProducts() {
     var productList = document.getElementById("productList");
-    productList.innerHTML = ""; // Clear previous products
+    productList.innerHTML = ""; 
   
     // Loop through localStorage to get product data
     for (var key in localStorage) {
@@ -47,14 +47,14 @@ document.getElementById("productForm").addEventListener("submit", function(event
   
   // Function to change product image
   function changeImage(key) {
-    document.getElementById("productImage").click(); // Trigger file input click event
+    document.getElementById("productImage").click(); 
     document.getElementById("productImage").addEventListener("change", function() {
       var newImage = this.files[0];
       if (newImage) {
         var reader = new FileReader();
         reader.onload = function(e) {
           var productData = JSON.parse(localStorage.getItem(key));
-          productData.image = e.target.result; // Base64 encoded image
+          productData.image = e.target.result; 
           localStorage.setItem(key, JSON.stringify(productData));
           displayProducts();
         };
@@ -85,10 +85,9 @@ document.getElementById("productForm").addEventListener("submit", function(event
     }
   }
   
-  // Function to navigate back to the previous page
+  
   function goBack() {
     window.history.back();
   }
   
-  // Call function to display products when the page loads
   displayProducts();

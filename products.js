@@ -1,58 +1,58 @@
-// Function to navigate back to the previous page
+
 function goBack() {
   window.history.back();
 }
 
-// Function to display products
 function displayProducts() {
-  var productList = document.getElementById("productList");
-  productList.innerHTML = ""; // Clear previous products
-
-  // Loop through localStorage to get product data
-  for (var key in localStorage) {
-      if (localStorage.hasOwnProperty(key) && key !== "length" && !key.startsWith("user_")) {
-          try {
-              // Skip parsing if key is "userId"
-              if (key === "userId") continue;
-
-              var productData = JSON.parse(localStorage.getItem(key));
-              // Check if the parsed data is an object (JSON)
-              if (typeof productData === "object" && productData !== null) {
-                  var productItem = document.createElement("div");
-                  productItem.classList.add("product-item");
-                  productItem.innerHTML = `
-            <div class="product-name">${productData.name}</div>
-            <img src="${productData.image}" alt="${productData.name}">
-            <p>Price: $${productData.price}</p>
-            <!-- Display product data only if it's not user account data -->
-            ${(productData.hasOwnProperty('name') && productData.hasOwnProperty('image') && productData.hasOwnProperty('price')) ?
-                      `<button onclick="addToCart('${key}')">Add to Cart</button>` : ''}
-          `;
-                  productList.appendChild(productItem);
-              }
-          } catch (error) {
-              console.error("Error parsing JSON for key:", key, error);
-          }
-      }
+    var productList = document.getElementById("productList");
+    productList.innerHTML = ""; 
+  
+    // Loop through localStorage to get product data
+    for (var key in localStorage) {
+        if (localStorage.hasOwnProperty(key) && key !== "length" && !key.startsWith("user_") && !key.startsWith("cart_")) {
+            try {
+                
+                if (key === "userId") continue;
+  
+                var productData = JSON.parse(localStorage.getItem(key));
+               
+                if (typeof productData === "object" && productData !== null) {
+                    var productItem = document.createElement("div");
+                    productItem.classList.add("product-item");
+                    productItem.innerHTML = `
+              <div class="product-name">${productData.name}</div>
+              <img src="${productData.image}" alt="${productData.name}">
+              <p>Price: $${productData.price}</p>
+              <!-- Display product data only if it's not user account data -->
+              ${(productData.hasOwnProperty('name') && productData.hasOwnProperty('image') && productData.hasOwnProperty('price')) ?
+                        `<button onclick="addToCart('${key}')">Add to Cart</button>` : ''}
+            `;
+                    productList.appendChild(productItem);
+                }
+            } catch (error) {
+                console.error("Error parsing JSON for key:", key, error);
+            }
+        }
+    }
   }
-}
+  
 
 // Function to add a product to the cart
 function addToCart(key) {
-  var isLoggedIn = localStorage.getItem("isLoggedIn"); // Check if user is logged in
-  var userId = localStorage.getItem("userId"); // Get the user's identifier
+  var isLoggedIn = localStorage.getItem("isLoggedIn"); 
+  var userId = localStorage.getItem("userId"); 
 
   // Check if the user is logged in and has a valid user identifier
   if (isLoggedIn === "true" && userId) {
       var productData = JSON.parse(localStorage.getItem(key));
-      var cartKey = "cart_" + userId; // Key for the user's cart data
-      var cart = JSON.parse(localStorage.getItem(cartKey)) || {}; // Get the user's cart data
-      cart[key] = cart[key] ? cart[key] + 1 : 1; // Add the product to the cart
-      localStorage.setItem(cartKey, JSON.stringify(cart)); // Save the updated cart data
-      updateCart(); // Update the cart display
+      var cartKey = "cart_" + userId; 
+      var cart = JSON.parse(localStorage.getItem(cartKey)) || {}; 
+      cart[key] = cart[key] ? cart[key] + 1 : 1; 
+      localStorage.setItem(cartKey, JSON.stringify(cart)); 
+      updateCart(); 
   } else {
       alert("Please log in to add items to your cart.");
-      window.location.href = "user.html"; // Redirect to the login page
+      window.location.href = "user.html"; 
   }
 }
 
@@ -61,9 +61,9 @@ function updateCart() {
   var cartItems = document.getElementById("cartItems");
   cartItems.innerHTML = "<tr><th>Product Name</th><th>Price</th><th>Quantity</th><th></th></tr>";
   var totalPrice = 0;
-  var userId = localStorage.getItem("userId"); // Get the user's identifier
-  var cartKey = "cart_" + userId; // Key for the user's cart data
-  var cart = JSON.parse(localStorage.getItem(cartKey)) || {}; // Get the user's cart data
+  var userId = localStorage.getItem("userId"); 
+  var cartKey = "cart_" + userId; 
+  var cart = JSON.parse(localStorage.getItem(cartKey)) || {}; 
 
   // Loop through the user's cart data
   for (var key in cart) {
@@ -158,5 +158,5 @@ function checkout() {
 
 // Call function to display products when the page loads
 displayProducts();
-updateCart(); // Update cart on page load
+updateCart(); 
 

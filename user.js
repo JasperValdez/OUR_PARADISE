@@ -1,11 +1,11 @@
-// JavaScript function to go back to the previous page
+
 function goBack() {
     window.history.back();
   }
   
   function setUserIdentifier(username) {
-    var userId = "user_" + username; // Creating a unique identifier for the user
-    localStorage.setItem("userId", userId); // Store the user identifier in local storage
+    var userId = "user_" + username; 
+    localStorage.setItem("userId", userId); 
   }
   // Function to register a new user
   function registerUser() {
@@ -15,7 +15,7 @@ function goBack() {
       alert("Username and password cannot be empty!");
       return;
     }
-    localStorage.setItem("user_" + username, password); // Store user credentials
+    localStorage.setItem("user_" + username, password); 
     alert("Registration successful!");
   }
   
@@ -23,12 +23,12 @@ function goBack() {
   function loginUser() {
     var loginUsername = document.getElementById("loginUsername").value;
     var loginPassword = document.getElementById("loginPassword").value;
-    var storedPassword = localStorage.getItem("user_" + loginUsername); // Retrieve stored password
+    var storedPassword = localStorage.getItem("user_" + loginUsername); 
     if (storedPassword === loginPassword) {
       alert("Login successful!");
-      setUserIdentifier(loginUsername); // Set unique identifier for the logged-in user
-      localStorage.setItem("isLoggedIn", "true"); // Set user's login status
-      window.location.href = "homepage.html"; // Redirect to shop page after login
+      setUserIdentifier(loginUsername); 
+      localStorage.setItem("isLoggedIn", "true"); 
+      window.location.href = "homepage.html"; 
     } else {
       alert("Invalid username or password.");
     }
@@ -41,7 +41,7 @@ function goBack() {
     var loginPassword = document.getElementById("loginPassword").value;
     if (loginUsername === adminUsername && loginPassword === adminPassword) {
       alert("Admin login successful!");
-      window.location.href = "manage.html"; // Change the URL to the desired admin page
+      window.location.href = "manage.html"; 
     } else {
       alert("Invalid admin credentials.");
     }

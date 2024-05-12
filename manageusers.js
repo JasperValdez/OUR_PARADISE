@@ -1,4 +1,4 @@
-// Function to go back to the previous page
+
 function goBack() {
   window.history.back();
 }
@@ -17,9 +17,9 @@ function getUserAccounts() {
 // Function to display user accounts on the page
 function displayUserAccounts() {
   var accountList = document.getElementById("accountList");
-  accountList.innerHTML = ""; // Clear previous accounts
+  accountList.innerHTML = ""; 
 
-  // Loop through localStorage to get user accounts with "user_" prefix
+  
   var accounts = getUserAccounts();
   accounts.forEach(function(account) {
       var accountItem = document.createElement("div");
@@ -71,7 +71,6 @@ function updateAllUserCartData() {
       deleteUserCart(account.username);
   });
 }
-
 
 // Call function to display user accounts when the page loads
 displayUserAccounts();
