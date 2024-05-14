@@ -1,91 +1,174 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #333;
-  }
-  .container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  h2 {
-    margin-top: 0;
-  }
-  .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
-  }
-  .product-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 8px;
-  }
-  .product-name {
-    background-color: #007bff;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  .product-item img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-  .product-item button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: grab;
-  }
-  .product-item button:hover {
-    background-color: #0056b3;
-  }
-  .checkout {
-    margin-top: 20px;
-  }
-  .checkout table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .checkout th, .checkout td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-  }
-  .checkout th {
-    background-color: #f2f2f2;
-  }
-  .checkout button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  color: #fff;
+}
 
-  }
-  .checkout button:hover {
-    background-color: #0056b3;
-  }
-  .back-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .back-button:hover {
-    background-color: #0056b3;
-  }
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #444;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.product-item {
+  background-color: #555;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: calc(33.33% - 20px); /* Three products per row */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.product-item img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-item .product-name {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.product-item .product-price {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.product-item button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-item button:hover {
+  background-color: #0056b3;
+}
+
+.checkout {
+  margin-top: 20px;
+}
+
+.checkout table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.checkout th, .checkout td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.checkout th {
+  background-color: #666;
+}
+
+.checkout button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkout button:hover {
+  background-color: #0056b3;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* Adjust width as needed */
+  max-width: 500px; /* Adjust the maximum width as needed */
+  background-color: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.modal.active {
+  display: block;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.product-description {
+  text-align: center;
+  color: black;
+}
+
+.product-description h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.product-description p {
+  margin-top: 0;
+  color: black;
+}

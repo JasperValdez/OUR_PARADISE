@@ -13,6 +13,7 @@
   <form id="productForm">
     <input type="text" id="productName" placeholder="Product Name" required>
     <input type="number" id="productPrice" placeholder="Product Price" required>
+    <textarea id="productDescription" placeholder="Product Description" required></textarea>
     <input type="file" id="productImage" accept="image/*" style="display: none;"> 
     <button type="button" onclick="document.getElementById('productImage').click();">Choose Image</button> 
     <button type="submit">Create Product</button>
@@ -23,6 +24,20 @@
   </div>
 
   <button class="back-button" onclick="goBack()">Back</button>
+</div>
+
+<!-- Update Product Modal -->
+<div id="updateModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" onclick="closeModal()">&times;</span>
+    <h2>Update Product</h2>
+    <form id="updateForm">
+      <input type="text" id="updateProductName" placeholder="Product Name" required>
+      <input type="number" id="updateProductPrice" placeholder="Product Price" required>
+      <textarea id="updateProductDescription" placeholder="Product Description" required></textarea>
+      <button type="submit">Update Product</button>
+    </form>
+  </div>
 </div>
 
 <script src="manageproducts.js"></script>
