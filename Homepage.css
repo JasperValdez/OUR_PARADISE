@@ -76,9 +76,18 @@ nav ul li a {
     color: #fff;
 }
 
+
+
 .login-btn:hover {
     background-color: #0056b3;
 }
+.user-info-icon {
+    font-size: 2.5rem; /* Adjust the size as needed */
+    cursor: pointer;
+    color: #fff; /* Ensure the icon color matches the design */
+    margin-left: 10px; /* Add margin to the left */
+}
+
 .logout-btn {
     background-color: #dc3545;
     color: #fff;
