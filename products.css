@@ -23,13 +23,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-}
-
-.product-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  width: 100%;
+  justify-content: center; /* Center the products */
 }
 
 .product-item {
@@ -37,13 +31,19 @@ h2 {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
-  width: calc(33.33% - 20px); /* Three products per row */
   box-sizing: border-box;
   text-align: center;
+  width: calc(25% - 20px); /* Smaller width for products */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-item img {
-  max-width: 100%;
+  max-width: 80%; /* Increased size */
   border-radius: 8px;
   margin-bottom: 10px;
 }
@@ -58,6 +58,8 @@ h2 {
 }
 
 .product-item .product-price {
+  font-size: 16px;
+  font-weight: 500;
   color: #fff;
   margin-bottom: 10px;
 }
@@ -76,7 +78,7 @@ h2 {
 }
 
 .checkout {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .checkout table {
@@ -109,15 +111,17 @@ h2 {
 }
 
 .back-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
   background-color: #007bff;
   color: #fff;
   border: none;
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
 }
 
 .back-button:hover {
@@ -131,12 +135,13 @@ h2 {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 80%; /* Adjust width as needed */
-  max-width: 500px; /* Adjust the maximum width as needed */
-  background-color: #fefefe;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  transition: all 0.3s ease;
 }
 
 .modal.active {
@@ -146,29 +151,36 @@ h2 {
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #333;
   text-decoration: none;
-  cursor: pointer;
 }
 
 .product-description {
   text-align: center;
-  color: black;
+  color: #333;
 }
 
 .product-description h3 {
   margin-top: 0;
   margin-bottom: 10px;
-  color: black;
 }
 
 .product-description p {
   margin-top: 0;
-  color: black;
+}
+
+.login-prompt {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  background-color: #ffdddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
