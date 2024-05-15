@@ -17,14 +17,22 @@ function displayUserInfo() {
 // Call displayUserInfo function initially to populate the modal
 displayUserInfo();
 
-// Function to logout
+
 function logout() {
-    localStorage.removeItem("userId");
-    localStorage.removeItem("isLoggedIn");
-    alert("Logged out successfully!");
-    window.location.href = "Homepage.html";
-    displayUserInfo(); // Update user info in modal after logout
+    var loggedInUser = localStorage.getItem("userId");
+
+    if (loggedInUser) {
+        localStorage.removeItem("userId");
+        localStorage.removeItem("isLoggedIn");
+        alert("Logged out successfully!");
+        window.location.href = "Homepage.html";
+    } else {
+        alert("No user logged in. Please log in first.");
+    }
+
+    displayUserInfo(); // Update user info in modal after logout attempt
 }
+
 
 // Function to login user
 function loginUser() {
